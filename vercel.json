@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/",
+        "status": 301,
+        "headers": {
+          "Location": "/data/anime"
+        }
+      },
+      {
+        "src": "/data/anime",
+        "dest": "/api/index.js"
+      },
+      {
+        "src": "/data/anime/(.*)",
+        "dest": "/api/index.js"
+      }
+    ]
+  }
+  
